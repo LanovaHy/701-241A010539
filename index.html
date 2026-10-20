@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đề Thi Kết Thúc Học Phần - Đề Số 1</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+    body { background-color: #f4f6f9; color: #333; line-height: 1.6; }
+    header { background: #1e293b; color: #fff; padding: 1rem 0; text-align: center; }
+    nav { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; background: #0f172a; padding: 12px; }
+    nav a { color: #f8fafc; text-decoration: none; font-weight: bold; padding: 6px 14px; border-radius: 4px; transition: background 0.2s; }
+    nav a:hover { background: #38bdf8; color: #0f172a; }
+    .container { max-width: 1100px; margin: 20px auto; padding: 0 15px; }
+    section { background: #fff; padding: 25px; border-radius: 8px; margin-bottom: 25px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    h2 { color: #0284c7; margin-bottom: 15px; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; }
+    .search-box { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem; }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
+    .product-card { border: 1px solid #e2e8f0; padding: 15px; border-radius: 6px; text-align: center; background: #fafafa; }
+    .error-msg { color: #ef4444; font-weight: bold; margin-top: 10px; }
+    .form-group { margin-bottom: 15px; }
+    .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+    .form-group input[type="text"], .form-group input[type="email"], .form-group input[type="password"] {
+      width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem;
+    }
+    .form-group small { color: #ef4444; display: block; margin-top: 5px; }
+    .btn-submit { background: #0284c7; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-size: 1rem; font-weight: bold; }
+    .btn-submit:hover { background: #0369a1; }
+    .timer-display { font-size: 3.5rem; font-weight: bold; text-align: center; margin: 20px 0; color: #0f172a; }
+    .timer-warning { color: #dc2626; animation: blink 1s infinite alternate; }
+    @keyframes blink { from { opacity: 1; } to { opacity: 0.3; } }
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; }
+    .modal-content { background: white; padding: 30px; border-radius: 8px; text-align: center; max-width: 400px; width: 90%; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>ĐỀ THI KẾT THÚC HỌC PHẦN "LẬP TRÌNH WEB" - ĐỀ SỐ 1</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Trang Chủ</a>
+    <a href="lythuyet.html">Trả lời Lý thuyết</a>
+    <a href="baitap23.html">Bài tập 23</a>
+    <a href="baitap22.html">Bài tập 22</a>
+    <a href="diemdanh.html">Thông tin Điểm danh</a>
+  </nav>
+
+  <div class="container">
+    
+    <section id="bai1">
+      <h2>Bài 1: Danh Sách Sản Phẩm & Tìm Kiếm Dynamic</h2>
+      <input type="text" id="searchInput" class="search-box" placeholder="Nhập tên sản phẩm để tìm kiếm...">
+      <div id="productGrid" class="product-grid"></div>
+      <p id="searchError" class="error-msg" style="display: none;">Không tìm thấy sản phẩm phù hợp!</p>
+    </section>
+
+    <section id="bai2">
+      <h2>Bài 2: Form Đăng Ký Người Dùng (Validation & LocalStorage)</h2>
+      <form id="registerForm" novalidate>
+        <div class="form-group">
+          <label for="username">Tên người dùng:</label>
+          <input type="text" id="username" required>
+          <small id="nameErr"></small>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" required>
+          <small id="emailErr"></small>
+        </div>
+        <div class="form-group">
+          <label for="password">Mật khẩu (ít nhất 8 ký tự, gồm chữ hoa, chữ thường và số):</label>
+          <input type="password" id="password" required>
+          <small id="passErr"></small>
+        </div>
+        <div class="form-group">
+          <label><input type="checkbox" id="terms"> Đồng ý với điều khoản</label>
+          <small id="termsErr"></small>
+        </div>
+        <button type="submit" class="btn-submit">Đăng Ký</button>
+      </form>
+      <div id="successMsg" style="color: #16a34a; font-weight: bold; margin-top: 15px;"></div>
+    </section>
+
+    <section id="bai3">
+      <h2>Bài 3: Đồng Hồ Đếm Ngược (Countdown Timer 10 Phút)</h2>
+      <div id="timerDisplay" class="timer-display">10:00</div>
+      <div style="text-align: center;">
+        <button id="startTimerBtn" class="btn-submit">Bắt đầu đếm ngược</button>
+      </div>
+    </section>
+
+  </div>
+
+  <div id="timeoutModal" class="modal">
+    <div class="modal-content">
+      <h3 style="color: #dc2626; margin-bottom: 10px;">THÔNG BÁO</h3>
+      <p>Thời gian làm bài đã HẾT!</p>
+      <button onclick="document.getElementById('timeoutModal').style.display='none'" class="btn-submit" style="margin-top: 15px;">Đóng</button>
+    </div>
+  </div>
+
+  <script>
+    const products = [
+      { id: 1, name: "Laptop Dell XPS", price: "25.000.000đ" },
+      { id: 2, name: "iPhone 15 Pro", price: "28.000.000đ" },
+      { id: 3, name: "Bàn phím cơ Logitech", price: "2.500.000đ" },
+      { id: 4, name: "Chuột không dây Razer", price: "1.200.000đ" },
+      { id: 5, name: "Màn hình Dell UltraSharp", price: "8.500.000đ" }
+    ];
+
+    function renderProducts(items) {
+      const grid = document.getElementById('productGrid');
+      const errorMsg = document.getElementById('searchError');
+      grid.innerHTML = '';
+      
+      if (items.length === 0) {
+        errorMsg.style.display = 'block';
+      } else {
+        errorMsg.style.display = 'none';
+        items.forEach(p => {
+          const card = document.createElement('div');
+          card.className = 'product-card';
+          card.innerHTML = `<h3>${p.name}</h3><p>Giá: ${p.price}</p>`;
+          grid.appendChild(card);
+        });
+      }
+    }
+
+    renderProducts(products);
+
+    document.getElementById('searchInput').addEventListener('input', function(e) {
+      const keyword = e.target.value.trim().toLowerCase();
+      const filtered = products.filter(p => p.name.toLowerCase().includes(keyword));
+      renderProducts(filtered);
+    });
+
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      let isValid = true;
+      const username = document.getElementById('username').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const terms = document.getElementById('terms').checked;
+
+      document.querySelectorAll('.form-group small').forEach(s => s.textContent = '');
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+
+      if (!username) {
+        document.getElementById('nameErr').textContent = 'Vui lòng nhập tên!';
+        isValid = false;
+      }
+      if (!emailRegex.test(email)) {
+        document.getElementById('emailErr').textContent = 'Email không hợp lệ!';
+        isValid = false;
+      }
+      if (!passRegex.test(password)) {
+        document.getElementById('passErr').textContent = 'Mật khẩu phải từ 8 ký tự, gồm ít nhất 1 chữ hoa, 1 chữ thường và 1 số!';
+        isValid = false;
+      }
+      if (!terms) {
+        document.getElementById('termsErr').textContent = 'Bạn phải đồng ý với điều khoản!';
+        isValid = false;
+      }
+
+      if (isValid) {
+        const userData = { username, email, registeredAt: new Date().toISOString() };
+        localStorage.setItem('registeredUser', JSON.stringify(userData));
+        
+        document.getElementById('successMsg').textContent = 'Đăng ký thành công! Đã lưu dữ liệu vào LocalStorage.';
+        this.reset();
+      }
+    });
+
+    let timerInterval = null;
+    let totalSeconds = 10 * 60;
+
+    document.getElementById('startTimerBtn').addEventListener('click', function() {
+      if (timerInterval) clearInterval(timerInterval);
+      
+      totalSeconds = 10 * 60;
+      const display = document.getElementById('timerDisplay');
+      display.classList.remove('timer-warning');
+
+      timerInterval = setInterval(() => {
+        totalSeconds--;
+        
+        const mins = String(Math.floor(totalSeconds / 60)).padStart(2, '0');
+        const secs = String(totalSeconds % 60).padStart(2, '0');
+        display.textContent = `${mins}:${secs}`;
+
+        if (totalSeconds <= 60 && totalSeconds > 0) {
+          display.classList.add('timer-warning');
+        }
+
+        if (totalSeconds <= 0) {
+          clearInterval(timerInterval);
+          timerInterval = null;
+          document.getElementById('timeoutModal').style.display = 'flex';
+        }
+      }, 1000);
+    });
+  </script>
+</body>
+</html>

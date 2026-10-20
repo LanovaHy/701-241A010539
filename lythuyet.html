@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Trả Lời Lý Thuyết - Đề 1</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; max-width: 900px; margin: 0 auto; background: #f8fafc; color: #333; }
+    h1 { color: #0284c7; margin-bottom: 10px; }
+    .q-box { background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    h3 { color: #0f172a; margin-bottom: 10px; }
+    code { background: #e2e8f0; padding: 2px 6px; border-radius: 4px; color: #0f172a; font-family: monospace; }
+    a { color: #0284c7; text-decoration: none; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>ĐÁP ÁN PHẦN LÝ THUYẾT - ĐỀ SỐ 1</h1>
+  <p><a href="index.html">&larr; Quay lại Trang Chủ</a></p>
+  <br>
+
+  <div class="q-box">
+    <h3>Câu 1: Position Absolute vs Relative trong CSS</h3>
+    <p><strong>Position Relative:</strong> Phần tử dịch chuyển dựa trên vị trí tự nhiên ban đầu của nó. Các phần tử xung quanh không bị ảnh hưởng hay lấp vào khoảng trống của nó.</p>
+    <p><strong>Position Absolute:</strong> Phần tử tách rời hoàn toàn khỏi dòng chảy tài liệu (document flow). Vị trí của nó dựa trên phần tử cha gần nhất có <code>position: relative</code>.</p>
+    <p><strong>Ảnh hưởng khi Deploy:</strong> Việc dùng sai <code>absolute</code> với giá trị pixel cố định dễ làm hỏng giao diện trên các kích thước màn hình khác nhau. Cần kết hợp với Media Queries, Flexbox hoặc Grid để đảm bảo tính Responsive.</p>
+  </div>
+
+  <div class="q-box">
+    <h3>Câu 2: Quy Trình Đăng Ký Domain, Hosting & DNS</h3>
+    <p>1. Đăng ký Domain qua nhà cung cấp (Cloudflare, GoDaddy, Tên Tên,...).</p>
+    <p>2. Đăng ký/Khởi tạo Web Hosting hoặc dịch vụ Static Hosting (GitHub Pages, Netlify, Vercel).</p>
+    <p>3. Trỏ bản ghi DNS (A Record hoặc CNAME) từ Domain đến địa chỉ IP/Host của Server.</p>
+    <p><strong>Rủi ro bảo mật:</strong> Thiếu cấu hình HTTPS/SSL sẽ làm cho dữ liệu truyền tải không được mã hóa, gây nguy cơ bị tấn công Man-in-the-Middle hoặc giả mạo tên miền.</p>
+  </div>
+
+  <div class="q-box">
+    <h3>Câu 3: Let, Const, Var & Hoisting</h3>
+    <p><strong>var:</strong> Phạm vi Function Scope, hỗ trợ Hoisting (được khởi tạo với <code>undefined</code>), cho phép khai báo lại.</p>
+    <p><strong>let:</strong> Phạm vi Block Scope, có Hoisting nhưng thuộc Vùng chết tạm thời (TDZ) nên truy cập trước khai báo sẽ gây lỗi.</p>
+    <p><strong>const:</strong> Phạm vi Block Scope, tương tự <code>let</code> nhưng giá trị không thể gán lại sau khi khởi tạo.</p>
+    <p><strong>Debug:</strong> Sử dụng Chrome DevTools (Tab Sources) để đặt Breakpoint và theo dõi giá trị biến trong Scope.</p>
+  </div>
+
+  <div class="q-box">
+    <h3>Câu 4: Event Delegation</h3>
+    <p><strong>Khái niệm:</strong> Là kỹ thuật lợi dụng cơ chế Event Bubbling để gán duy nhất 1 Event Listener tại phần tử cha nhằm quản lý tất cả các phần tử con.</p>
+    <p><strong>Lợi ích:</strong> Tối ưu hiệu suất bộ nhớ RAM, đồng thời tự động xử lý được các phần tử con được thêm mới vào DOM về sau mà không cần gán lại sự kiện.</p>
+  </div>
+</body>
+</html>
